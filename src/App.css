@@ -13,8 +13,14 @@
   }
 }
 
+@font-face {
+    font-family: 'formulaone';
+    src: url('./Formula1-Regular.ttf');
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #0c497a;
+  font-family: 'formulaone';
   min-height: 100vh;
   display: flex;
   flex-direction: column;
