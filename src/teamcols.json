@@ -1,106 +1,79 @@
-[
- {
-   "Team": "Ferrari",
-   "Colour": "#DC0000"
- },
- {
-   "Team": "McLaren",
-   "Colour": "#FF8700"
- },
- {
-   "Team": "Williams",
-   "Colour": "#ffffff"
- },
- {
-   "Team": "Red Bull",
-   "Colour": "#0600EF"
- },
- {
-   "Team": "Mercedes",
-   "Colour": "#00D2BE"
- },
- {
-   "Team": "Renault",
-   "Colour": "#FFD800"
- },
- {
-   "Team": "Team Lotus",
-   "Colour": "#FFB800"
- },
- {
-   "Team": "Tyrrell",
-   "Colour": "#2e3192"
- },
- {
-   "Team": "Sauber",
-   "Colour": "#9B0000"
- },
- {
-   "Team": "Benetton",
-   "Colour": "#3266ba"
- },
- {
-   "Team": "Racing Point",
-   "Colour": "#F596C8"
- },
- {
-   "Team": "Ligier",
-   "Colour": "#eea312"
- },
- {
-   "Team": "Brabham",
-   "Colour": "#d3d3d3"
- },
- {
-   "Team": "BRM",
-   "Colour": "#004225"
- },
- {
-   "Team": "Maserati",
-   "Colour": "#990000"
- },
- {
-   "Team": "Arrows",
-   "Colour": "#ff6600"
- },
- {
-   "Team": "AlphaTauri",
-   "Colour": "#469BFF"
- },
- {
-   "Team": "Jordan",
-   "Colour": "#ffa219"
- },
- {
-   "Team": "March",
-   "Colour": "#03dbfc"
- },
- {
-   "Team": "Cooper-Climax",
-   "Colour": "#d3d3d3"
- },
- {
-   "Team": "Toyota",
-   "Colour": "#bb0a1e"
- },
- {
-   "Team": "Minardi",
-   "Colour": "#d3d3d3"
- },
- {
-   "Team": "BAR",
-   "Colour": "#d3d3d3"
- },
- {
-   "Team": "Alfa Romeo",
-   "Colour": "#9B0000"
- },
- {
-   "Team": "Lotus-Climax",
-   "Colour": "#FFB800"
- },
- {
-   "Team": "BMW Sauber",
-   "Colour": "#d3d3d3"
- }
-]
+{
+  "Ferrari": "#DC0000",
+  "McLaren": "#FF8700",
+  "Williams": "#FFFFFF",
+  "Red Bull": "#0600EF",
+  "Mercedes": "#00D2BE",
+  "Renault": "#FFD800",
+  "Team Lotus": "#A28D00",
+  "Tyrrell": "#2e3192",
+  "Sauber": "#9B0000",
+  "Benetton": "#3266ba",
+  "Racing Point": "#F596C8",
+  "Ligier": "#eea312",
+  "Brabham": "#1c4c99",
+  "BRM": "#004225",
+  "Maserati": "#990000",
+  "Arrows": "#ff6600",
+  "AlphaTauri": "#469BFF",
+  "Jordan": "#ffa219",
+  "March": "#03dbfc",
+  "Cooper-Climax": "#d3d3d3",
+  "Toyota": "#bb0a1e",
+  "Minardi": "#dbcd2e",
+  "BAR": "#FFFFFF",
+  "Alfa Romeo": "#BD2E40",
+  "Lotus-Climax": "#FFB800",
+  "Brawn":"#B8FD6E",
+  "Matra":"#2f4aad",
+  "Haas F1 Team": "#FFFFFF",
+  "Alpine F1 Team":"#0090FF",
+  "Aston Martin":"#006F62",
+  "Kurtis Kraft":"#969696",
+  "Wolf":"#969696",
+  "Shadow":"#FFFFFF",
+  "Surtees":"#2f4aad",
+  "Cooper":"#027039",
+  "Vanwall":"#074f2b",
+  "Honda":"#FFFFFF",
+  "Gordini":"#d3d3d3",
+  "Talbot-Lago":"#d3d3d3",
+  "Jaguar":"#098f4c",
+  "Porsche":"#d3d3d3",
+  "Hesketh":"#FFFFFF",
+  "Stewart":"#d3d3d3",
+  "Fittipaldi":"#edf048",
+  "Prost":"#321a9c",
+  "Footwork":"#FFFFFF",
+  "Lola":"#d3d3d3",
+  "Dallara":"#d3d3d3",
+  "Larrousse":"#d3d3d3",
+  "Epperly":"#d3d3d3",
+  "Toleman":"#d3d3d3",
+  "Ensign":"#d3d3d3",
+  "Penske":"#d3d3d3",
+  "Watson":"#d3d3d3",
+  "ATS":"#d3d3d3",
+  "Kuzma":"#d3d3d3",
+  "Connaught":"#d3d3d3",
+  "Leyton House":"#d3d3d3",
+  "Osella":"#d3d3d3",
+  "BRP":"#d3d3d3",
+  "Iso Marlboro":"#d3d3d3",
+  "Zakspeed":"#d3d3d3",
+  "AGS":"#d3d3d3",
+  "Onyx":"#d3d3d3",
+  "Rial":"#d3d3d3",
+  "Forti":"#d3d3d3",
+  "Theodore":"#d3d3d3",
+  "Embassy Hill":"#d3d3d3",
+  "Parnelli":"#d3d3d3",
+  "Simca":"#d3d3d3",
+  "Veritas":"#d3d3d3",
+  "AFM":"#d3d3d3",
+  "Deidt":"#d3d3d3",
+  "Eagle":"#d3d3d3",
+  "Lesovsky":"#d3d3d3",
+  "Others": "#d3d3d3"
+
+}

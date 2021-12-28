@@ -5,55 +5,76 @@ import { useEffect, useRef, useState } from 'react';
 
 function App() {
 
-  const [dataset, setData] = useState([]);
   const [newdat, setNewData] = useState([]);
+  const [pos, setPos] = useState([]);
   const [loading, setLoading] = useState(true);
   const ref = useRef();
 
   useEffect(() => {
 
-    d3.csv("/f1stream.csv")
-      .then((d) => {
-        setNewData(d)
-        // setLoading(false)
-      })
+    Promise.all([
+      d3.csv("/f1stream.csv"),
+      d3.csv("/positions.csv")
+    ]).then((d) => {
+      
+      return (
+        
+        setNewData(d[0]),
+        setPos(d[1])
+        )
+        
+    }).then(() =>
+        
+      setLoading(false)
+
+      )
     
   }, [])
+
+  var period = new Set(pos.map(d=>d.period))
   
   var points = d => d.points
   var teams = d => d.team
   var season = d => d.season
+
   
   
+  var dat = newdat.map(a =>
+    ({
+      constructor: a.constructor,
+      season: a.season,
+      points: a.points * a.count
+    }));
+    
+    
+    //sum points per constructor per season
+    dat = d3.flatRollup(dat,
+      v => d3.sum(v, points),
+      d => d.season,
+      d => d.constructor)
+      
+      
+      // flattens data to array of objects
+      dat = dat.map(d => ({
+        season: d[0],
+        team: d[1],
+        points: d[2]
+        
+      }));
+  
+  console.log(d3.max(dat.map(d=>d.points)));
+      
+  var conpoints = d3.flatRollup(dat, v => d3.sum(v, points), teams).map(d => ({ team: d[0], points: d[1] }));
 
-  var sample = newdat
-  var dat = sample.map(a =>
-  ({
-    constructor: a.constructor,
-    season: a.season,
-    points: a.points * a.count
-  }));
+  
+  var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points))
+  // sortedcons = sortedcons.map(d => d.points > 100 ? { team: d.team } : { team: 'Others' });
 
-  dat = d3.flatRollup(dat,
-    v => d3.sum(v, points),
-    d => d.season,
-    d => d.constructor)
-
-  dat = dat.map(d => ({
-    season: d[0],
-    team: d[1],
-    points: d[2]
-
-  }));
-
-  console.log('dat', dat);
-
-  var cons = Array.from(new Set(dat.map(teams)));
+  var cons = sortedcons.map(d => d.team)
   var seasons = Array.from(new Set(dat.map(season)));
  
   var newm = [];
 
-  
   for (const season of seasons) {
     newm.push({
       season: season,
@@ -65,10 +86,11 @@ function App() {
     
   }
 
+
   for (var year in seasons) {
     let a = seasons[year];
     let seasonData = dat.filter(d => d.season === a);
-    
+      
     
     for (let j = 0; j < seasonData.length; j++) {
       let cons = seasonData.map(d => d.team)[j]
@@ -77,63 +99,26 @@ function App() {
 
   }
 
-  console.log(newm);
   
-  
-  
-  
-  
-  
-  
-  useEffect(() => {
-
-    d3.csv("/f1posstreamformat.csv")
-      .then((d) => {
-        setData(d)
-        setLoading(false)
-      })
-    
-  }, [])
 
   
-  console.log('dataset: ',dataset.slice(600,620));
-  var keys = dataset.columns?.slice(2, dataset.length)
-  // var keys = [...cons]
+  // var keys = dataset.columns?.slice(2, dataset.length)
+  var keys = [...cons]
   
   console.log(keys);
-  console.log(dataset.columns?.slice(2, dataset.length));
-  console.log(newm?.slice(1, newm.length));
-
-  // console.log(seasons);
 
   let winwidth = window.innerWidth;
 
-  var margin = { top: 20, right: 40, bottom: 0, left: 40 },
+  var margins = 50
+
+  var margin = { top: margins, right: margins, bottom: 0, left: margins },
     width = winwidth - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 400 - margin.top - margin.bottom;
   
-  var maxdom = 2000
+  var maxdom = 1200
 
-  var xScale = d3.scaleLinear().domain([1950, 2023]).range([0, width])
+  var xScale = d3.scaleLinear().domain(d3.extent(seasons)).range([0, width])
   var yScale = d3.scaleLinear().domain([-maxdom, maxdom]).range([height, 0])
-
-
-  // let datatemp = dataset.slice(0,15)
-
-  // useEffect(() => {
-  
-  // redo this to use dataset not datatemp
-    
-  // keys?.forEach((element, i) => {
-    
-  //     datatemp = datatemp.map(a => 
-  //       ({ ...a, [element]: a[element] * a.position || 0 })
-  //     );
-    
-      
-      
-  // });
-
 
   
   useEffect(() => {
@@ -144,62 +129,59 @@ function App() {
 
       let data = await newm
 
+      console.log(newm);
+
       // data = datatemp.map(({ position, ...item }) => item)
 
       var svg = d3.select(ref.current)
-        .append("svg")
+        // .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-      
-
-      console.log('keys ', keys);
-
-      var teamcolors = ["#DC0000", "#FF8700", "#FFFFFF", "#0600EF",
-        "#00D2BE", "#FFD800", "#FFB800", "#2e3192", "#9B0000",
-        "#3266ba", "#F596C8", "#eea312", "#d3d3d3", "#004225", "#990000"
-        , "#ff6600", "#469BFF", "#ffa219", "#03dbfc", "#d3d3d3", "#bb0a1e",
-        "#d3d3d3", "#d3d3d3", "#9B0000", "#FFB800", "#d3d3d3"]
-      
-    
-      var color = d3.scaleOrdinal()
-        .domain(keys)
-        .range([...teamcolors,
-          ..."#d3d3d3".repeat(keys.length - teamcolors.length)]);
      
       var stackedData = d3.stack()
           .offset(d3.stackOffsetSilhouette)
           .keys(keys)
           (data)
       
-      var Tooltip = svg
-        .append("text")
-        .attr("x", 10)
-        .attr("y", 10)
-        .style("opacity", 0)
-        .style("color","white")
-        .style("font-size", 17)
+      
 
       // Three function that change the tooltip when user hover / move / leave a cell
       var mouseover = (d) => {
         Tooltip.style("opacity", 1)
-        d3.selectAll(".myArea").style("opacity", .2)
-        d3.select(this)
+        d3.selectAll(".myArea")
+          .style("opacity", .1)
+        // d3.selectAll("circle")
+        //   .style("opacity", .1)
+        d3.select("#"+d.path[0].id)
           .style("stroke", "black")
           .style("opacity", 1)
+        console.log(d3.select(d.id));
+        console.log(d.path[0].id);
       }
       var mousemove = function (d, i) {
         var grp = keys[i]
         Tooltip.text(grp)
       }
-      var mouseleave = function (d) {
+      var mouseleave = (d) => {
         Tooltip.style("opacity", 0)
         d3.selectAll(".myArea")
           .style("opacity", 1)
           .style("stroke", "black")
+        d3.selectAll("circle")
+          .style("opacity", 1)
       }
+
+      var Tooltip = svg
+        .append("text")
+        .attr("x", 10)
+        .attr("y", 10)
+        .style("opacity", 0)
+        .style("color", "white")
+        .style("font-size", 17)
+
       
       var area = d3.area()
         .x(d => xScale(d.data.season))
@@ -210,83 +192,74 @@ function App() {
         // Show the areas
         svg.selectAll("mylayers")
           .data(stackedData)
-          .join("path")
+          .enter()
+          .append("path")
           .attr("class", "myArea")
-          .style("fill", d => color(d.key))
-          .style("stroke", "black")
-          .attr("id",d => d.key)
+          .style("fill", d => teamcols[d.key])
+          // .style("stroke", "black")
+          .attr("id",d => d.key.replace(" ",""))
           .attr("d", area)
           .on("mouseover", mouseover)
-          .on("mousemove", mousemove)
+          // .on("mousemove", mousemove)
           .on("mouseleave", mouseleave)
-      
+
+
     }
     
-    
-
       init()
-
-    //   var keys = Object.keys(data[0])
-
-    //   keys.forEach(key => {
-    //     if (key !== "season") {
-    //       var consArea = d3.line()
-    //         .x(d => xScale(parseFloat(d.season)))
-    //         .y(d => yScale(d[key]))
-    //         .curve(d3.curveCardinal);
-
-    //       svg.append("path")
-    //         .attr("id", key + "Area")
-    //         .attr("d", consArea(data))
-    //         .style("fill", "none")
-    //         .style("stroke", "black")
-        
-    //     }
-    //   }) 
-    // }
-
-    // init()
     
       
     }, [loading]);
 
   
-  var gap = width / 10
+    var cols = 9
+    var gap = width / cols
 
 
   return (
     <div className="App">
       <header className="App-header">
-
-        {loading ? <p>loading</p> : <p>Formula 1 Constructors</p>}
-          <svg ref={ref} width={width} height={height}></svg>
-        {/* {[...cons].filter(d => d.includes('McLaren')).map(d => <p>{d}</p>)} */}
-
-        <svg width={width}>
-
-          {loading ? <p>loading</p> :
-            keys.map((d, i) =>
-              <g key={d + i}>
-                <circle
-                  key={d + i}
-                  cx={20+ (i < 10 ? gap * i : (gap * i) - gap * 10)}
-                  cy={i < 10 ? 10 : 40}
-                  r={5}
-                  fill={teamcols[i]?.Colour}
-                  stroke={'white'}>
-                </circle>
-                <text
-                  x={20+ (i < 10 ? (gap * i) : (gap * i) - gap * 10)+10}
-                  y={3+(i < 10 ? 10 : 40)}
-                  fontSize={10}
-                  fill={"white"}>{d}
-                </text>
-            </g>)}
-          
-        </svg>
-
         
+        {loading ? <p>loading</p> :
+          <div>
+            <p>Formula 1 Constructors <br/> 1950-2021</p>
+            {/* <select>
+              {[...period].map(d => <option value={d} key={d}>{d}</option>)}  
+            </select> */}
+          </div>
+        }
+        <svg ref={ref} width={width} height={height}>
+          <text fill='white' x={50} y={330} fontSize={10}>Size of stream represents number of points</text>
+          <text fill='white' x={40} y={150} fontSize={10}>1950</text>
+          <text fill='white' x={width+30} y={50} fontSize={10}>2021</text>
+        </svg>
+        {/* <text>{Tooltip}</text> */}
 
+        <svg width={width}>          
+          {keys?.map((d, i) =>
+            <g key={d + i}>
+            <circle
+                key={d + i}
+                id={d.replace(" ", "")}
+                className={d.replace(" ", "")}
+                cx={margins+(i % cols) * (gap)}
+                cy={20 + (Math.floor(i/cols))*20}
+                r={5}
+                fill={teamcols[d]}
+                // stroke={'white'}
+              >
+              </circle>
+              <text
+                x={margins + (i % cols) * (gap) + 10}
+                y={3 + (20 + (Math.floor(i / cols)) * 20)}
+                fontSize={10}
+              fill={"white"}
+              >
+                {d}
+              </text>
+            </g>
+          )}
+        </svg>
       </header>
     </div>
   );
