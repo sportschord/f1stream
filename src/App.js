@@ -31,6 +31,8 @@ function App() {
     
   }, [])
 
+  console.log(newdat);
+
   var period = new Set(pos.map(d=>d.period))
   
   var points = d => d.points
