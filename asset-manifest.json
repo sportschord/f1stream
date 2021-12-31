@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/f1stream/static/css/main.5d5c4177.css",
-    "main.js": "/f1stream/static/js/main.c7c9064c.js",
-    "static/js/787.a06c6a7a.chunk.js": "/f1stream/static/js/787.a06c6a7a.chunk.js",
+    "main.js": "/f1stream/static/js/main.8cb0cb14.js",
+    "static/media/f1stream.csv": "/f1stream/static/media/f1stream.f68388d98da3843cb97c.csv",
     "static/media/Formula1-Regular.ttf": "/f1stream/static/media/Formula1-Regular.0f4e3d54644717199c6f.ttf",
     "index.html": "/f1stream/index.html",
+    "static/media/positions.csv": "/f1stream/static/media/positions.d2fecd1ccc19458e5af5.csv",
     "main.5d5c4177.css.map": "/f1stream/static/css/main.5d5c4177.css.map",
-    "main.c7c9064c.js.map": "/f1stream/static/js/main.c7c9064c.js.map",
-    "787.a06c6a7a.chunk.js.map": "/f1stream/static/js/787.a06c6a7a.chunk.js.map"
+    "main.8cb0cb14.js.map": "/f1stream/static/js/main.8cb0cb14.js.map"
   },
   "entrypoints": [
     "static/css/main.5d5c4177.css",
-    "static/js/main.c7c9064c.js"
+    "static/js/main.8cb0cb14.js"
   ]
 }
