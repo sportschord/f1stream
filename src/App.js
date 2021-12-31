@@ -2,6 +2,8 @@ import './App.css';
 import * as d3 from 'd3'
 import teamcols from './teamcols.json'
 import { useEffect, useRef, useState } from 'react';
+import streams from './f1stream.csv'
+import positions from './positions.csv'
 
 function App() {
 
@@ -12,9 +14,13 @@ function App() {
 
   useEffect(() => {
 
+    console.log(streams);
+
     Promise.all([
-      d3.csv("/f1stream.csv"),
-      d3.csv("/positions.csv")
+
+      
+      d3.csv(streams),
+      d3.csv(positions)
     ]).then((d) => {
       
       return (
