@@ -19,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #051c30;
+  background-image: linear-gradient(to bottom right, #051c30, #074b86);
   font-family: 'formulaone';
   min-height: 100vh;
   display: flex;
