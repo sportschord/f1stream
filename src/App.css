@@ -23,19 +23,34 @@ body {
 }
 
 .App-header {
-  background-image: linear-gradient(to bottom right, #051c30, #074b86);
-  font-family: 'formulaone';
+  background-color: white;
+  font-family: 'montserrat';
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 30% 40% 20% 10%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(20px + 2vmin);
+  color: black;
+  width: 1682px;
+  height: 1188px;
 }
 
-.App-link {
-  color: #61dafb;
+.headline {
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-size: 40px;
+  margin-left: 50px;
+  /* text-align: left; */
+  vertical-align: bottom;
+}
+.tagline {
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 12px;
+  /* margin-left: 50px; */
+  /* text-align: left; */
+  vertical-align: bottom;
 }
 
 /* body {
@@ -55,7 +70,7 @@ body {
 .select {
   /* display: flex;
   flex-direction: column; */
-  color: white;
+  color: black;
   font-family: 'formulaone';
   position: relative;
   width: 150px;
@@ -102,7 +117,7 @@ input:checked + label:after {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid white;
+  border-top: 5px solid black;
   position: absolute;
   right: 10px;
   top: calc(50% - 2.5px);
