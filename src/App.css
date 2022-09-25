@@ -27,13 +27,13 @@ body {
   font-family: 'montserrat';
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 30% 40% 20% 10%;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
   align-items: center;
   justify-content: center;
   font-size: calc(20px + 2vmin);
   color: black;
-  width: 1682px;
-  height: 1188px;
+  width: 100vw;
+  height: 100px;
 }
 
 .headline {

@@ -1,0 +1,793 @@
+﻿season,team,group,points,GroupPoints
+1950,Ferrari,Ferrari,84,21029
+1950,Alfa Romeo (Original),Sauber-Alfa,270,3364
+1950,Maserati,Maserati,17,1133
+1950,Gordini,Gordini,12,278
+1951,Ferrari,Ferrari,307,21029
+1951,Alfa Romeo (Original),Sauber-Alfa,294,3364
+1951,BRM,BRM,16,2076
+1951,Vanwall,Vanwall,14,406
+1951,Gordini,Gordini,16,278
+1951,Rosier,Rosier,39,121
+1952,Ferrari,Ferrari,356,21029
+1952,Maserati,Maserati,28,1133
+1952,Gordini,Gordini,91,278
+1952,Rosier,Rosier,1,121
+1952,Connaught,Connaught,24,81
+1953,Ferrari,Ferrari,433,21029
+1953,Cooper,Cooper,14,1499
+1953,Maserati,Maserati,244,1133
+1953,Gordini,Gordini,67,278
+1953,Rosier,Rosier,12,121
+1953,Connaught,Connaught,8,81
+1954,Ferrari,Ferrari,286,21029
+1954,Mercedes-Benz,Mercedes,200,11967
+1954,BRM,BRM,16,2076
+1954,Maserati,Maserati,146,1133
+1954,Vanwall,Vanwall,6,406
+1954,Gordini,Gordini,39,278
+1954,Rosier,Rosier,43,121
+1954,Bob Estes,Bob Estes,6,41
+1955,Ferrari,Ferrari,239,21029
+1955,Mercedes-Benz,Mercedes,262,11967
+1955,Maserati,Maserati,177,1133
+1955,Vanwall,Vanwall,4,406
+1955,Gordini,Gordini,17,278
+1955,Rosier,Rosier,4,121
+1956,Ferrari,Ferrari,358,21029
+1956,BRM,BRM,15,2076
+1956,Maserati,Maserati,272,1133
+1956,Vanwall,Vanwall,14,406
+1956,Gordini,Gordini,36,278
+1956,Centro Sud,Centro Sud,16,173
+1956,Rosier,Rosier,22,121
+1956,Connaught,Connaught,37,81
+1956,Bob Estes,Bob Estes,15,41
+1957,Ferrari,Ferrari,240,21029
+1957,Cooper,Cooper,36,1499
+1957,Maserati,Maserati,249,1133
+1957,Vanwall,Vanwall,152,406
+1957,Centro Sud,Centro Sud,63,173
+1957,Connaught,Connaught,12,81
+1957,Bob Estes,Bob Estes,2,41
+1958,Ferrari,Ferrari,309,21029
+1958,Team Lotus,Team Lotus,44,5363
+1958,BRM,BRM,105,2076
+1958,Cooper,Cooper,129,1499
+1958,RRC Walker,RRC Walker,75,713
+1958,Vanwall,Vanwall,216,406
+1958,Porsche,Porsche,8,222
+1958,Centro Sud,Centro Sud,11,173
+1958,Jo Bonnier,Jo Bonnier,19,77
+1958,Bob Estes,Bob Estes,6,41
+1959,Ferrari,Ferrari,251,21029
+1959,Team Lotus,Team Lotus,34,5363
+1959,BRM,BRM,93,2076
+1959,Cooper,Cooper,209,1499
+1959,RRC Walker,RRC Walker,123,713
+1959,Centro Sud,Centro Sud,10,173
+1959,BRP,BRP,19,145
+1960,Ferrari,Ferrari,184,21029
+1960,Team Lotus,Team Lotus,138,5363
+1960,BRM,BRM,48,2076
+1960,Cooper,Cooper,258,1499
+1960,RRC Walker,RRC Walker,92,713
+1960,Reg Parnell,Reg Parnell,107,372
+1960,Porsche,Porsche,14,222
+1960,Centro Sud,Centro Sud,17,173
+1960,Bob Estes,Bob Estes,12,41
+1961,Ferrari,Ferrari,290,21029
+1961,Team Lotus,Team Lotus,87,5363
+1961,BRM,BRM,51,2076
+1961,Cooper,Cooper,77,1499
+1961,RRC Walker,RRC Walker,66,713
+1961,Reg Parnell,Reg Parnell,47,372
+1961,Porsche,Porsche,117,222
+1961,Centro Sud,Centro Sud,4,173
+1961,BRP,BRP,5,145
+1962,Ferrari,Ferrari,128,21029
+1962,Team Lotus,Team Lotus,115,5363
+1962,Brabham,Brabham,46,3647
+1962,BRM,BRM,201,2076
+1962,Cooper,Cooper,175,1499
+1962,RRC Walker,RRC Walker,10,713
+1962,Reg Parnell,Reg Parnell,68,372
+1962,Porsche,Porsche,83,222
+1962,BRP,BRP,28,145
+1963,Ferrari,Ferrari,100,21029
+1963,Team Lotus,Team Lotus,229,5363
+1963,Brabham,Brabham,129,3647
+1963,BRM,BRM,225,2076
+1963,Cooper,Cooper,110,1499
+1963,RRC Walker,RRC Walker,52,713
+1963,Reg Parnell,Reg Parnell,27,372
+1963,Centro Sud,Centro Sud,13,173
+1963,BRP,BRP,57,145
+1964,Ferrari,Ferrari,212,21029
+1964,Team Lotus,Team Lotus,192,5363
+1964,Brabham,Brabham,104,3647
+1964,BRM,BRM,222,2076
+1964,Cooper,Cooper,78,1499
+1964,RRC Walker,RRC Walker,35,713
+1964,Reg Parnell,Reg Parnell,31,372
+1964,Centro Sud,Centro Sud,35,173
+1964,BRP,BRP,36,145
+1964,DW Racing Enterprises,DW Racing Enterprises,35,70
+1965,Ferrari,Ferrari,146,21029
+1965,Honda,Mercedes,57,11967
+1965,Team Lotus,Team Lotus,206,5363
+1965,Brabham,Brabham,157,3647
+1965,BRM,BRM,263,2076
+1965,Cooper,Cooper,70,1499
+1965,RRC Walker,RRC Walker,68,713
+1965,Reg Parnell,Reg Parnell,20,372
+1965,Centro Sud,Centro Sud,4,173
+1965,DW Racing Enterprises,DW Racing Enterprises,5,70
+1966,Ferrari,Ferrari,135,21029
+1966,McLaren,McLaren,18,14277
+1966,Honda,Mercedes,16,11967
+1966,Team Lotus,Team Lotus,72,5363
+1966,Brabham,Brabham,199,3647
+1966,BRM,BRM,107,2076
+1966,Cooper,Cooper,157,1499
+1966,Matra,Matra,7,769
+1966,RRC Walker,RRC Walker,12,713
+1966,Reg Parnell,Reg Parnell,20,372
+1966,Anglo American Racers,Anglo American Racers,26,80
+1966,Jo Bonnier,Jo Bonnier,14,77
+1966,DW Racing Enterprises,DW Racing Enterprises,14,70
+1967,Ferrari,Ferrari,110,21029
+1967,McLaren,McLaren,18,14277
+1967,Honda,Mercedes,72,11967
+1967,Team Lotus,Team Lotus,181,5363
+1967,Brabham,Brabham,313,3647
+1967,BRM,BRM,85,2076
+1967,Cooper,Cooper,98,1499
+1967,Matra,Matra,12,769
+1967,RRC Walker,RRC Walker,31,713
+1967,Reg Parnell,Reg Parnell,24,372
+1967,Anglo American Racers,Anglo American Racers,40,80
+1967,Jo Bonnier,Jo Bonnier,21,77
+1967,DW Racing Enterprises,DW Racing Enterprises,16,70
+1968,Ferrari,Ferrari,133,21029
+1968,McLaren,McLaren,195,14277
+1968,Honda,Mercedes,47,11967
+1968,Team Lotus,Team Lotus,193,5363
+1968,Brabham,Brabham,41,3647
+1968,BRM,BRM,98,2076
+1968,Cooper,Cooper,88,1499
+1968,Matra,Matra,196,769
+1968,RRC Walker,RRC Walker,55,713
+1968,Reg Parnell,Reg Parnell,28,372
+1968,Anglo American Racers,Anglo American Racers,14,80
+1968,Jo Bonnier,Jo Bonnier,22,77
+1969,Ferrari,Ferrari,39,21029
+1969,McLaren,McLaren,184,14277
+1969,Team Lotus,Team Lotus,164,5363
+1969,Brabham,Brabham,190,3647
+1969,BRM,BRM,41,2076
+1969,Matra,Matra,286,769
+1969,RRC Walker,RRC Walker,55,713
+1969,Frank Williams Racing Cars,Wolf,57,472
+1970,Ferrari,Ferrari,245,21029
+1970,McLaren,McLaren,144,14277
+1970,Tyrrell,Mercedes,110,11967
+1970,Team Lotus,Team Lotus,201,5363
+1970,Brabham,Brabham,128,3647
+1970,BRM,BRM,103,2076
+1970,Matra,Matra,137,769
+1970,March,March,112,752
+1970,RRC Walker,RRC Walker,39,713
+1970,Surtees,Surtees,32,404
+1971,Ferrari,Ferrari,156,21029
+1971,McLaren,McLaren,56,14277
+1971,Tyrrell,Mercedes,269,11967
+1971,Team Lotus,Team Lotus,114,5363
+1971,Brabham,Brabham,47,3647
+1971,BRM,BRM,163,2076
+1971,Matra,Matra,70,769
+1971,March,March,114,752
+1971,Frank Williams Racing Cars,Wolf,24,472
+1971,Surtees,Surtees,77,404
+1971,Penske,Penske,16,129
+1971,Jo Bonnier,Jo Bonnier,1,77
+1972,Ferrari,Ferrari,183,21029
+1972,McLaren,McLaren,252,14277
+1972,Tyrrell,Mercedes,195,11967
+1972,Team Lotus,Team Lotus,180,5363
+1972,Brabham,Brabham,72,3647
+1972,BRM,BRM,76,2076
+1972,Matra,Matra,61,769
+1972,March,March,74,752
+1972,Frank Williams Racing Cars,Wolf,24,472
+1972,Surtees,Surtees,88,404
+1973,Ferrari,Ferrari,86,21029
+1973,McLaren,McLaren,273,14277
+1973,Tyrrell,Mercedes,378,11967
+1973,Team Lotus,Team Lotus,326,5363
+1973,Brabham,Brabham,117,3647
+1973,BRM,BRM,101,2076
+1973,March,March,5,752
+1973,Frank Williams Racing Cars,Wolf,38,472
+1973,Shadow,Shadow,45,425
+1973,Surtees,Surtees,61,404
+1973,Hesketh,Hesketh,61,279
+1973,Hill,Hill,3,79
+1974,Ferrari,Ferrari,287,21029
+1974,McLaren,McLaren,350,14277
+1974,Tyrrell,Mercedes,230,11967
+1974,Team Lotus,Team Lotus,165,5363
+1974,Brabham,Brabham,150,3647
+1974,BRM,BRM,45,2076
+1974,March,March,45,752
+1974,Frank Williams Racing Cars,Wolf,26,472
+1974,Shadow,Shadow,53,425
+1974,Surtees,Surtees,13,404
+1974,Hesketh,Hesketh,60,279
+1974,Hill,Hill,38,79
+1975,Ferrari,Ferrari,308,21029
+1975,McLaren,McLaren,250,14277
+1975,Tyrrell,Mercedes,155,11967
+1975,Team Lotus,Team Lotus,64,5363
+1975,Brabham,Brabham,220,3647
+1975,BRM,BRM,2,2076
+1975,March,March,79,752
+1975,Frank Williams Racing Cars,Wolf,24,472
+1975,Shadow,Shadow,69,425
+1975,Surtees,Surtees,7,404
+1975,Hesketh,Hesketh,129,279
+1975,Fittipaldi,Fittipaldi,1,272
+1975,Penske,Penske,26,129
+1975,Ensign,Ensign,9,116
+1975,Hill,Hill,38,79
+1976,Ferrari,Ferrari,328,21029
+1976,McLaren,McLaren,301,14277
+1976,Tyrrell,Mercedes,307,11967
+1976,Team Lotus,Team Lotus,124,5363
+1976,Brabham,Brabham,71,3647
+1976,Ligier,Ligier,78,2201
+1976,March,March,103,752
+1976,Frank Williams Racing Cars,Wolf,6,472
+1976,Wolf,Wolf,8,472
+1976,Shadow,Shadow,87,425
+1976,Surtees,Surtees,46,404
+1976,Hesketh,Hesketh,14,279
+1976,Fittipaldi,Fittipaldi,26,272
+1976,Penske,Penske,87,129
+1976,Ensign,Ensign,15,116
+1977,Ferrari,Ferrari,378,21029
+1977,McLaren,McLaren,233,14277
+1977,Tyrrell,Mercedes,115,11967
+1977,Team Lotus,Team Lotus,224,5363
+1977,Brabham,Brabham,127,3647
+1977,Ligier,Ligier,89,2201
+1977,March,March,10,752
+1977,Wolf,Wolf,172,472
+1977,Shadow,Shadow,112,425
+1977,Surtees,Surtees,62,404
+1977,Hesketh,Hesketh,15,279
+1977,Fittipaldi,Fittipaldi,53,272
+1977,Ensign,Ensign,43,116
+1977,ATS (Germany),ATS,18,111
+1977,Theodore,Theodore,28,59
+1978,Ferrari,Ferrari,239,21029
+1978,McLaren,McLaren,116,14277
+1978,Tyrrell,Mercedes,165,11967
+1978,Williams,Williams,53,9196
+1978,Team Lotus,Team Lotus,354,5363
+1978,Brabham,Brabham,244,3647
+1978,Ligier,Ligier,101,2201
+1978,Arrows,Arrows,57,1366
+1978,Equipe Renault,Equipe Renault,13,1119
+1978,Wolf,Wolf,87,472
+1978,Shadow,Shadow,31,425
+1978,Surtees,Surtees,18,404
+1978,Fittipaldi,Fittipaldi,82,272
+1978,Ensign,Ensign,13,116
+1978,ATS (Germany),ATS,12,111
+1978,Theodore,Theodore,1,59
+1979,Ferrari,Ferrari,374,21029
+1979,McLaren,McLaren,88,14277
+1979,Tyrrell,Mercedes,146,11967
+1979,Williams,Williams,243,9196
+1979,Team Lotus,Team Lotus,158,5363
+1979,Brabham,Brabham,58,3647
+1979,Ligier,Ligier,210,2201
+1979,Arrows,Arrows,53,1366
+1979,Equipe Renault,Equipe Renault,91,1119
+1979,Wolf,Wolf,6,472
+1979,Shadow,Shadow,28,425
+1979,Fittipaldi,Fittipaldi,24,272
+1979,ATS (Germany),ATS,14,111
+1980,Ferrari,Ferrari,71,21029
+1980,McLaren,McLaren,80,14277
+1980,Tyrrell,Mercedes,73,11967
+1980,Williams,Williams,378,9196
+1980,Team Lotus,Team Lotus,78,5363
+1980,Brabham,Brabham,198,3647
+1980,Alfa Romeo (Autodelta),Sauber-Alfa,20,3364
+1980,Ligier,Ligier,235,2201
+1980,Arrows,Arrows,68,1366
+1980,Equipe Renault,Equipe Renault,127,1119
+1980,Fittipaldi,Fittipaldi,63,272
+1980,Ensign,Ensign,2,116
+1980,ATS (Germany),ATS,11,111
+1980,RAM,RAM,2,17
+1981,Ferrari,Ferrari,134,21029
+1981,McLaren,McLaren,127,14277
+1981,Tyrrell,Mercedes,52,11967
+1981,Williams,Williams,311,9196
+1981,Toleman,Lotus,1,7163
+1981,Team Lotus,Team Lotus,129,5363
+1981,Brabham,Brabham,214,3647
+1981,Alfa Romeo (Autodelta),Sauber-Alfa,68,3364
+1981,Ligier,Ligier,153,2201
+1981,Arrows,Arrows,48,1366
+1981,Equipe Renault,Equipe Renault,178,1119
+1981,March,March,10,752
+1981,Fittipaldi,Fittipaldi,9,272
+1981,Ensign,Ensign,30,116
+1981,ATS (Germany),ATS,9,111
+1981,Osella,Osella,11,74
+1981,Theodore,Theodore,21,59
+1982,Ferrari,Ferrari,245,21029
+1982,McLaren,McLaren,234,14277
+1982,Tyrrell,Mercedes,141,11967
+1982,Williams,Williams,233,9196
+1982,Toleman,Lotus,1,7163
+1982,Team Lotus,Team Lotus,138,5363
+1982,Brabham,Brabham,133,3647
+1982,Alfa Romeo (Autodelta),Sauber-Alfa,46,3364
+1982,Ligier,Ligier,82,2201
+1982,Arrows,Arrows,60,1366
+1982,Equipe Renault,Equipe Renault,200,1119
+1982,March,March,21,752
+1982,Fittipaldi,Fittipaldi,14,272
+1982,Ensign,Ensign,4,116
+1982,ATS (Germany),ATS,25,111
+1982,Osella,Osella,14,74
+1983,Ferrari,Ferrari,297,21029
+1983,McLaren,McLaren,136,14277
+1983,Tyrrell,Mercedes,63,11967
+1983,Williams,Williams,166,9196
+1983,Toleman,Lotus,72,7163
+1983,Team Lotus,Team Lotus,61,5363
+1983,Brabham,Brabham,232,3647
+1983,Alfa Romeo (Autodelta),Sauber-Alfa,78,3364
+1983,Ligier,Ligier,26,2201
+1983,Arrows,Arrows,70,1366
+1983,Equipe Renault,Equipe Renault,267,1119
+1983,ATS (Germany),ATS,6,111
+1983,Osella,Osella,1,74
+1983,Theodore,Theodore,9,59
+1984,Ferrari,Ferrari,228,21029
+1984,McLaren,McLaren,435,14277
+1984,Williams,Williams,109,9196
+1984,Toleman,Lotus,84,7163
+1984,Team Lotus,Team Lotus,203,5363
+1984,Brabham,Brabham,145,3647
+1984,Alfa Romeo (Autodelta),Sauber-Alfa,58,3364
+1984,Ligier,Ligier,47,2201
+1984,Arrows,Arrows,51,1366
+1984,Equipe Renault,Equipe Renault,140,1119
+1984,ATS (Germany),ATS,16,111
+1984,Osella,Osella,34,74
+1984,RAM,RAM,13,17
+1985,Ferrari,Ferrari,282,21029
+1985,McLaren,McLaren,286,14277
+1985,Tyrrell,Mercedes,78,11967
+1985,Williams,Williams,247,9196
+1985,Team Lotus,Team Lotus,258,5363
+1985,Brabham,Brabham,122,3647
+1985,Alfa Romeo (Autodelta),Sauber-Alfa,8,3364
+1985,Ligier,Ligier,103,2201
+1985,Arrows,Arrows,102,1366
+1985,Minardi,Minardi,4,1352
+1985,Equipe Renault,Equipe Renault,103,1119
+1985,Osella,Osella,10,74
+1985,RAM,RAM,2,17
+1986,Ferrari,Ferrari,153,21029
+1986,McLaren,McLaren,321,14277
+1986,Tyrrell,Mercedes,80,11967
+1986,Williams,Williams,440,9196
+1986,Benetton,Lotus,96,7163
+1986,Team Lotus,Team Lotus,208,5363
+1986,Brabham,Brabham,43,3647
+1986,Ligier,Ligier,156,2201
+1986,Arrows,Arrows,49,1366
+1986,Minardi,Minardi,4,1352
+1986,Zakspeed,Zakspeed,14,52
+1987,Ferrari,Ferrari,180,21029
+1987,McLaren,McLaren,281,14277
+1987,Tyrrell,Mercedes,98,11967
+1987,Williams,Williams,413,9196
+1987,Benetton,Lotus,140,7163
+1987,Team Lotus,Team Lotus,241,5363
+1987,Brabham,Brabham,48,3647
+1987,Ligier,Ligier,25,2201
+1987,Arrows,Arrows,70,1366
+1987,March,March,11,752
+1987,Larrousse,Larrousse,41,263
+1987,Zakspeed,Zakspeed,38,52
+1987,AGS,AGS,13,45
+1988,Ferrari,Ferrari,239,21029
+1988,McLaren,McLaren,576,14277
+1988,Tyrrell,Mercedes,30,11967
+1988,Williams,Williams,98,9196
+1988,Benetton,Lotus,193,7163
+1988,Team Lotus,Team Lotus,130,5363
+1988,Ligier,Ligier,6,2201
+1988,Arrows,Arrows,138,1366
+1988,Minardi,Minardi,19,1352
+1988,March,March,115,752
+1988,Larrousse,Larrousse,22,263
+1988,BMS Scuderia Italia,BMS,15,182
+1988,Osella,Osella,2,74
+1988,AGS,AGS,8,45
+1989,Ferrari,Ferrari,177,21029
+1989,McLaren,McLaren,419,14277
+1989,Tyrrell,Mercedes,91,11967
+1989,Williams,Williams,265,9196
+1989,Benetton,Lotus,158,7163
+1989,Team Lotus,Team Lotus,89,5363
+1989,Brabham,Brabham,56,3647
+1989,Ligier,Ligier,32,2201
+1989,Arrows,Arrows,98,1366
+1989,Minardi,Minardi,50,1352
+1989,March,March,34,752
+1989,Larrousse,Larrousse,10,263
+1989,BMS Scuderia Italia,BMS,67,182
+1989,AGS,AGS,18,45
+1989,Onyx,Onyx,29,35
+1990,Ferrari,Ferrari,343,21029
+1990,McLaren,McLaren,388,14277
+1990,Tyrrell,Mercedes,100,11967
+1990,Williams,Williams,235,9196
+1990,Benetton,Lotus,278,7163
+1990,Team Lotus,Team Lotus,43,5363
+1990,Brabham,Brabham,18,3647
+1990,Ligier,Ligier,22,2201
+1990,Arrows,Arrows,34,1366
+1990,Minardi,Minardi,14,1352
+1990,Larrousse,Larrousse,77,263
+1990,BMS Scuderia Italia,BMS,2,182
+1990,Leyton House,Leyton House,47,81
+1990,AGS,AGS,2,45
+1990,Onyx,Onyx,6,35
+1991,Ferrari,Ferrari,213,21029
+1991,McLaren,McLaren,432,14277
+1991,Tyrrell,Mercedes,60,11967
+1991,Williams,Williams,381,9196
+1991,Benetton,Lotus,189,7163
+1991,Team Lotus,Team Lotus,30,5363
+1991,Brabham,Brabham,25,3647
+1991,Jordan,Jordan,100,2962
+1991,Ligier,Ligier,28,2201
+1991,Footwork,Arrows,1,1366
+1991,Minardi,Minardi,50,1352
+1991,Larrousse,Larrousse,18,263
+1991,BMS Scuderia Italia,BMS,42,182
+1991,Leyton House,Leyton House,34,81
+1991,Fondmetal,Osella,1,74
+1991,AGS,AGS,4,45
+1992,Ferrari,Ferrari,95,21029
+1992,McLaren,McLaren,307,14277
+1992,Tyrrell,Mercedes,54,11967
+1992,Williams,Williams,456,9196
+1992,Benetton,Lotus,327,7163
+1992,Team Lotus,Team Lotus,89,5363
+1992,Jordan,Jordan,21,2962
+1992,Ligier,Ligier,64,2201
+1992,Footwork,Arrows,97,1366
+1992,Minardi,Minardi,25,1352
+1992,March,March,19,752
+1992,Larrousse,Larrousse,12,263
+1992,BMS Scuderia Italia,BMS,49,182
+1992,Fondmetal,Osella,1,74
+1993,Ferrari,Ferrari,131,21029
+1993,McLaren,McLaren,263,14277
+1993,Tyrrell,Mercedes,2,11967
+1993,Williams,Williams,475,9196
+1993,Benetton,Lotus,248,7163
+1993,Team Lotus,Team Lotus,70,5363
+1993,Sauber,Sauber-Alfa,84,3364
+1993,Jordan,Jordan,30,2962
+1993,Ligier,Ligier,147,2201
+1993,Footwork,Arrows,38,1366
+1993,Minardi,Minardi,71,1352
+1993,Larrousse,Larrousse,42,263
+1993,BMS Scuderia Italia,BMS,7,182
+1994,Ferrari,Ferrari,243,21029
+1994,McLaren,McLaren,166,14277
+1994,Tyrrell,Mercedes,73,11967
+1994,Williams,Williams,347,9196
+1994,Benetton,Lotus,296,7163
+1994,Team Lotus,Team Lotus,31,5363
+1994,Sauber,Sauber-Alfa,85,3364
+1994,Jordan,Jordan,129,2962
+1994,Ligier,Ligier,88,2201
+1994,Footwork,Arrows,62,1366
+1994,Minardi,Minardi,49,1352
+1994,Larrousse,Larrousse,41,263
+1995,Ferrari,Ferrari,259,21029
+1995,McLaren,McLaren,142,14277
+1995,Tyrrell,Mercedes,59,11967
+1995,Williams,Williams,350,9196
+1995,Benetton,Lotus,435,7163
+1995,Sauber,Sauber-Alfa,120,3364
+1995,Jordan,Jordan,112,2962
+1995,Ligier,Ligier,137,2201
+1995,Footwork,Arrows,37,1366
+1995,Minardi,Minardi,38,1352
+1996,Ferrari,Ferrari,232,21029
+1996,McLaren,McLaren,223,14277
+1996,Tyrrell,Mercedes,56,11967
+1996,Williams,Williams,484,9196
+1996,Benetton,Lotus,251,7163
+1996,Sauber,Sauber-Alfa,88,3364
+1996,Jordan,Jordan,127,2962
+1996,Ligier,Ligier,100,2201
+1996,Footwork,Arrows,21,1366
+1996,Minardi,Minardi,9,1352
+1997,Ferrari,Ferrari,324,21029
+1997,McLaren,McLaren,225,14277
+1997,Tyrrell,Mercedes,23,11967
+1997,Williams,Williams,373,9196
+1997,Benetton,Lotus,271,7163
+1997,Stewart,Stewart-RedBull,27,6953
+1997,Sauber,Sauber-Alfa,116,3364
+1997,Jordan,Jordan,162,2962
+1997,Prost,Ligier,126,2201
+1997,Arrows,Arrows,63,1366
+1997,Minardi,Minardi,7,1352
+1998,Ferrari,Ferrari,415,21029
+1998,McLaren,McLaren,456,14277
+1998,Tyrrell,Mercedes,8,11967
+1998,Williams,Williams,206,9196
+1998,Benetton,Lotus,174,7163
+1998,Stewart,Stewart-RedBull,32,6953
+1998,Sauber,Sauber-Alfa,96,3364
+1998,Jordan,Jordan,157,2962
+1998,Prost,Ligier,13,2201
+1998,Arrows,Arrows,34,1366
+1998,Minardi,Minardi,20,1352
+1999,Ferrari,Ferrari,411,21029
+1999,McLaren,McLaren,364,14277
+1999,BAR,Mercedes,23,11967
+1999,Williams,Williams,155,9196
+1999,Benetton,Lotus,101,7163
+1999,Stewart,Stewart-RedBull,152,6953
+1999,Sauber,Sauber-Alfa,54,3364
+1999,Jordan,Jordan,230,2962
+1999,Prost,Ligier,76,2201
+1999,Arrows,Arrows,18,1366
+1999,Minardi,Minardi,27,1352
+2000,Ferrari,Ferrari,491,21029
+2000,McLaren,McLaren,490,14277
+2000,BAR,Mercedes,128,11967
+2000,Williams,Williams,172,9196
+2000,Benetton,Lotus,111,7163
+2000,Jaguar,Stewart-RedBull,61,6953
+2000,Sauber,Sauber-Alfa,82,3364
+2000,Jordan,Jordan,105,2962
+2000,Prost,Ligier,11,2201
+2000,Arrows,Arrows,49,1366
+2000,Minardi,Minardi,16,1352
+2001,Ferrari,Ferrari,522,21029
+2001,McLaren,McLaren,340,14277
+2001,BAR,Mercedes,121,11967
+2001,Williams,Williams,251,9196
+2001,Benetton,Lotus,65,7163
+2001,Jaguar,Stewart-RedBull,66,6953
+2001,Sauber,Sauber-Alfa,143,3364
+2001,Jordan,Jordan,127,2962
+2001,Prost,Ligier,46,2201
+2001,Arrows,Arrows,31,1366
+2001,Minardi,Minardi,5,1352
+2002,Ferrari,Ferrari,603,21029
+2002,McLaren,McLaren,245,14277
+2002,BAR,Mercedes,68,11967
+2002,Williams,Williams,332,9196
+2002,Renault,Lotus,133,7163
+2002,Jaguar,Stewart-RedBull,58,6953
+2002,Sauber,Sauber-Alfa,113,3364
+2002,Jordan,Jordan,74,2962
+2002,Arrows,Arrows,17,1366
+2002,Minardi,Minardi,22,1352
+2002,Toyota,Toyota,48,844
+2003,Ferrari,Ferrari,399,21029
+2003,McLaren,McLaren,339,14277
+2003,BAR,Mercedes,83,11967
+2003,Williams,Williams,352,9196
+2003,Renault,Lotus,224,7163
+2003,Jaguar,Stewart-RedBull,59,6953
+2003,Sauber,Sauber-Alfa,64,3364
+2003,Jordan,Jordan,38,2962
+2003,Minardi,Minardi,3,1352
+2003,Toyota,Toyota,55,844
+2004,Ferrari,Ferrari,638,21029
+2004,McLaren,McLaren,183,14277
+2004,BAR,Mercedes,295,11967
+2004,Williams,Williams,226,9196
+2004,Renault,Lotus,265,7163
+2004,Jaguar,Stewart-RedBull,40,6953
+2004,Sauber,Sauber-Alfa,114,3364
+2004,Jordan,Jordan,17,2962
+2004,Minardi,Minardi,7,1352
+2004,Toyota,Toyota,32,844
+2005,Ferrari,Ferrari,256,21029
+2005,McLaren,McLaren,452,14277
+2005,BAR,Mercedes,104,11967
+2005,Williams,Williams,167,9196
+2005,Renault,Lotus,466,7163
+2005,Red Bull Racing,Stewart-RedBull,111,6953
+2005,Sauber,Sauber-Alfa,67,3364
+2005,Jordan,Jordan,33,2962
+2005,Minardi,Minardi,18,1352
+2005,Toyota,Toyota,232,844
+2006,Ferrari,Ferrari,496,21029
+2006,McLaren,McLaren,269,14277
+2006,Honda,Mercedes,225,11967
+2006,Williams,Williams,41,9196
+2006,Renault,Lotus,504,7163
+2006,Red Bull Racing,Stewart-RedBull,52,6953
+2006,Sauber,Sauber-Alfa,109,3364
+2006,Midland,Jordan,3,2962
+2006,Toro Rosso,Minardi,11,1352
+2006,Toyota,Toyota,106,844
+2006,Super Aguri,Super Aguri,1,13
+2007,Ferrari,Ferrari,500,21029
+2007,McLaren,McLaren,531,14277
+2007,Honda,Mercedes,25,11967
+2007,Williams,Williams,95,9196
+2007,Renault,Lotus,150,7163
+2007,Red Bull Racing,Stewart-RedBull,74,6953
+2007,Sauber,Sauber-Alfa,257,3364
+2007,Spyker,Jordan,4,2962
+2007,Toro Rosso,Minardi,24,1352
+2007,Toyota,Toyota,45,844
+2007,Super Aguri,Super Aguri,12,13
+2008,Ferrari,Ferrari,429,21029
+2008,McLaren,McLaren,379,14277
+2008,Honda,Mercedes,40,11967
+2008,Williams,Williams,77,9196
+2008,Renault,Lotus,203,7163
+2008,Red Bull Racing,Stewart-RedBull,93,6953
+2008,Sauber,Sauber-Alfa,334,3364
+2008,Force India,Jordan,1,2962
+2008,Toro Rosso,Minardi,107,1352
+2008,Toyota,Toyota,152,844
+2009,Ferrari,Ferrari,184,21029
+2009,McLaren,McLaren,184,14277
+2009,Brawn GP,Mercedes,448,11967
+2009,Williams,Williams,101,9196
+2009,Renault,Lotus,74,7163
+2009,Red Bull Racing,Stewart-RedBull,380,6953
+2009,Sauber,Sauber-Alfa,107,3364
+2009,Force India,Jordan,36,2962
+2009,Toro Rosso,Minardi,29,1352
+2009,Toyota,Toyota,174,844
+2010,Ferrari,Ferrari,396,21029
+2010,McLaren,McLaren,454,14277
+2010,Mercedes,Mercedes,214,11967
+2010,Williams,Williams,69,9196
+2010,Renault,Lotus,163,7163
+2010,Red Bull Racing,Stewart-RedBull,498,6953
+2010,Sauber,Sauber-Alfa,44,3364
+2010,Force India,Jordan,68,2962
+2010,Toro Rosso,Minardi,13,1352
+2011,Ferrari,Ferrari,375,21029
+2011,McLaren,McLaren,497,14277
+2011,Mercedes,Mercedes,165,11967
+2011,Williams,Williams,5,9196
+2011,Lotus,Lotus,73,7163
+2011,Red Bull Racing,Stewart-RedBull,650,6953
+2011,Sauber,Sauber-Alfa,44,3364
+2011,Force India,Jordan,69,2962
+2011,Toro Rosso,Minardi,41,1352
+2012,Ferrari,Ferrari,400,21029
+2012,McLaren,McLaren,378,14277
+2012,Mercedes,Mercedes,142,11967
+2012,Williams,Williams,76,9196
+2012,Lotus,Lotus,303,7163
+2012,Red Bull Racing,Stewart-RedBull,460,6953
+2012,Sauber,Sauber-Alfa,126,3364
+2012,Force India,Jordan,109,2962
+2012,Toro Rosso,Minardi,26,1352
+2013,Ferrari,Ferrari,354,21029
+2013,McLaren,McLaren,122,14277
+2013,Mercedes,Mercedes,360,11967
+2013,Williams,Williams,5,9196
+2013,Lotus,Lotus,315,7163
+2013,Red Bull Racing,Stewart-RedBull,596,6953
+2013,Sauber,Sauber-Alfa,57,3364
+2013,Force India,Jordan,77,2962
+2013,Toro Rosso,Minardi,33,1352
+2014,Ferrari,Ferrari,213,21029
+2014,McLaren,McLaren,171,14277
+2014,Mercedes,Mercedes,676,11967
+2014,Williams,Williams,287,9196
+2014,Lotus,Lotus,10,7163
+2014,Red Bull Racing,Stewart-RedBull,389,6953
+2014,Force India,Jordan,141,2962
+2014,Toro Rosso,Minardi,30,1352
+2014,Marussia,Virgin Marussia,2,3
+2015,Ferrari,Ferrari,428,21029
+2015,McLaren,McLaren,27,14277
+2015,Mercedes,Mercedes,703,11967
+2015,Williams,Williams,257,9196
+2015,Lotus,Lotus,78,7163
+2015,Red Bull Racing,Stewart-RedBull,187,6953
+2015,Sauber,Sauber-Alfa,36,3364
+2015,Force India,Jordan,136,2962
+2015,Toro Rosso,Minardi,67,1352
+2016,Ferrari,Ferrari,398,21029
+2016,McLaren,McLaren,76,14277
+2016,Mercedes,Mercedes,765,11967
+2016,Williams,Williams,138,9196
+2016,Renault,Lotus,8,7163
+2016,Red Bull Racing,Stewart-RedBull,468,6953
+2016,Sauber,Sauber-Alfa,2,3364
+2016,Force India,Jordan,173,2962
+2016,Toro Rosso,Minardi,63,1352
+2016,Haas F1 Team,Haas,29,231
+2016,Manor Racing,Virgin Marussia,1,3
+2017,Ferrari,Ferrari,522,21029
+2017,McLaren,McLaren,30,14277
+2017,Mercedes,Mercedes,668,11967
+2017,Williams,Williams,83,9196
+2017,Renault,Lotus,57,7163
+2017,Red Bull Racing,Stewart-RedBull,368,6953
+2017,Sauber,Sauber-Alfa,5,3364
+2017,Force India,Jordan,187,2962
+2017,Toro Rosso,Minardi,53,1352
+2017,Haas F1 Team,Haas,47,231
+2018,Ferrari,Ferrari,571,21029
+2018,McLaren,McLaren,62,14277
+2018,Mercedes,Mercedes,655,11967
+2018,Williams,Williams,7,9196
+2018,Renault,Lotus,122,7163
+2018,Red Bull Racing,Stewart-RedBull,419,6953
+2018,Sauber,Sauber-Alfa,48,3364
+2018,Force India,Jordan,59,2962
+2018,Racing Point,Jordan,52,2962
+2018,Toro Rosso,Minardi,33,1352
+2018,Haas F1 Team,Haas,93,231
+2019,Ferrari,Ferrari,498,21029
+2019,McLaren,McLaren,145,14277
+2019,Mercedes,Mercedes,731,11967
+2019,Williams,Williams,1,9196
+2019,Renault,Lotus,91,7163
+2019,Red Bull Racing,Stewart-RedBull,412,6953
+2019,Alfa Romeo,Sauber-Alfa,57,3364
+2019,Racing Point,Jordan,73,2962
+2019,Toro Rosso,Minardi,85,1352
+2019,Haas F1 Team,Haas,28,231
+2020,Ferrari,Ferrari,131,21029
+2020,McLaren,McLaren,199,14277
+2020,Mercedes,Mercedes,564,11967
+2020,Renault,Lotus,179,7163
+2020,Red Bull Racing,Stewart-RedBull,316,6953
+2020,Alfa Romeo,Sauber-Alfa,8,3364
+2020,Racing Point,Jordan,210,2962
+2020,AlphaTauri,Minardi,107,1352
+2020,Haas F1 Team,Haas,3,231
+2021,Ferrari,Ferrari,325,21029
+2021,McLaren,McLaren,278,14277
+2021,Mercedes,Mercedes,603,11967
+2021,Williams,Williams,33,9196
+2021,Alpine,Lotus,158,7163
+2021,Red Bull Racing,Stewart-RedBull,585,6953
+2021,Alfa Romeo,Sauber-Alfa,13,3364
+2021,Aston Martin,Jordan,82,2962
+2021,AlphaTauri,Minardi,145,1352
+2022,Ferrari,Ferrari,304,21029
+2022,McLaren,McLaren,87,14277
+2022,Mercedes,Mercedes,296,11967
+2022,Williams,Williams,3,9196
+2022,Alpine,Lotus,96,7163
+2022,Red Bull Racing,Stewart-RedBull,400,6953
+2022,Alfa Romeo,Sauber-Alfa,49,3364
+2022,Aston Martin,Jordan,20,2962
+2022,AlphaTauri,Minardi,27,1352
+2022,Haas F1 Team,Haas,31,231

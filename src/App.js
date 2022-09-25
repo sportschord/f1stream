@@ -4,12 +4,17 @@ import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
 import teamcols from './teamcols.json'
 import streams from './f1stream.csv'
-import positions from './positions.csv'
+// import grouped from './f1streamgroups.csv'
+import grouped from './f1streamsorted.csv'
+import f1keysdata from './keys.csv'
+// import positions from './positions.csv'
 
 function App() {
 
   const [newdat, setNewData] = useState([]);
-  const [pos, setPos] = useState([]);
+  // const [pos, setPos] = useState([]);
+  const [data, setData] = useState([]);
+  const [f1keys, setKeys] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedOption, setSelectedOption] = useState("2010-2021")
   const ref = useRef();
@@ -17,14 +22,14 @@ function App() {
 
   const handleDownloadImage = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element, {scale:1});
+    const canvas = await html2canvas(element, {scale:30});
 
     const data = canvas.toDataURL('image/png');
     const link = document.createElement('a');
 
     if (typeof link.download === 'string') {
       link.href = data;
-      link.download = 'image.png';
+      link.download = 'streamgraph.png';
 
       document.body.appendChild(link);
       link.click();
@@ -41,25 +46,33 @@ function App() {
 
     Promise.all([
       d3.csv(streams),
-      d3.csv(positions)
+      // d3.csv(positions),
+      d3.csv(grouped),
+      d3.csv(f1keysdata),
+
     ]).then((d) => {
       return (
         setNewData(d[0]),
-        setPos(d[1])
+        // setPos(d[1]),
+        setData(d[1]),
+        setKeys(d[2])
       )
     }).then(() =>
       setLoading(false)
     )
   }, [])
 
+
   const handleSelect = (e) => setSelectedOption(e.target.value)
 
   // get the different periods from points csv
-  var period = new Set(pos.map(d => d.period))
+  // var period = new Set(pos.map(d => d.period))
 
   //accessor functions
-  var points = d => d.points
   var teams = d => d.team
+  var grouppoints = d => d.GroupPoints
+  var points = d => d.points
+  var groups = d => d.group
   var season = d => d.season
 
   let merged = [];
@@ -67,48 +80,54 @@ function App() {
   for (let i = 0; i < newdat.length; i++) {
     merged.push({
       ...newdat[i],
-      ...(pos.filter(d => d.period === selectedOption).find((d) => d.position === newdat[i].position))
+      // ...(pos.filter(d => d.period === selectedOption).find((d) => d.position === newdat[i].position))
     }
     );
   }
-
+  
   var dat = merged.map(a =>
-  ({
-    constructor: a.constructor,
-    season: a.season,
-    points: a.points * a.count
-  }));
-
-
+    ({
+      group: a.ConstructorGroup,
+      constructor: a.Constructor,
+      season: a.Season,
+      points: a.Points * a.Count
+    }));
+    
+  
   //sum points per constructor per season
   dat = d3.flatRollup(dat,
     v => d3.sum(v, points),
     d => d.season,
-    d => d.constructor)
-
-
+    d => d.constructor,
+    d => d.group
+  )
+    
+  
   // flattens data to array of objects
   dat = dat.map(d => ({
     season: d[0],
     team: d[1],
-    points: d[2]
-
+    group: d[2],
+    points: d[3]
+    
   }));
-
-
-
-  var conpoints = d3.flatRollup(dat, v => d3.sum(v, points), teams).map(d => ({ team: d[0], points: d[1] }));
+  
+  var conpoints = d3.flatRollup(dat, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
+  console.log('con',conpoints);
+  var groupedpoints = d3.flatRollup(data, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
+  // var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
   var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
+  groupedpoints = groupedpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
+
+  // console.log('data',data);
+  // console.log('group',groupedpoints);
+  // console.log(sortedcons);
   sortedcons = sortedcons.filter(d => d.points > 0);
-
-
-
-  // console.log(sortedcons.filter(d => d.points > 0));
 
   var seaspoints = d3.flatRollup(dat, v => d3.sum(v, points), season).map(d => ({ season: d[0], points: d[1] }));
   var maxpoints = d3.max(seaspoints.map(d => d.points));
 
-  var cons = sortedcons.map(d => d.team)
+  var cons = dat.map(d => d.team)
   var seasons = Array.from(new Set(dat.map(season)));
 
   var newm = [];
@@ -137,16 +156,21 @@ function App() {
 
   }
 
+  // console.log(newm.sort((a, b) => d3.descending(a.points, b.points)));
+
+  // sortedcons = sortedcons.filter(d => d.group === 'Ferrari' || d.group === 'Mercedes' || d.group === 'McLaren');
+  // sortedcons = conpoints.slice().sort((a, b) => d3.ascending(a.points, b.points));
 
   var keys = sortedcons.map(d => d.team)
+  console.log(f1keys.map(d => d.team));
 
-  // console.log(keys);
+  var keys = f1keys.map(d => d.team)
 
   // let winwidth = window.innerWidth;
-  let winwidth = 1682;
-  let winheight=500
+  let winwidth = 840;
+  let winheight = 75
 
-  var margins = 50
+  var margins = 0
 
   var margin = { top: margins, right: margins, bottom: 0, left: margins },
     width = winwidth - margin.left - margin.right,
@@ -154,23 +178,30 @@ function App() {
 
 
 
-  var maxdom = maxpoints / 2
+  var maxdom = maxpoints/2 
+  // var maxdom = 1
 
 
 
   var xScale = d3.scaleLinear().domain(d3.extent(seasons)).range([0, width])
   var yScale = d3.scaleLinear().domain([-maxdom, maxdom]).range([height, 0])
+  // var yScale = d3.scaleLinear().domain([0, maxdom]).range([height, 0])
 
   var stackedData = d3.stack()
-    .offset(d3.stackOffsetSilhouette)
     .keys(keys)
+    .offset(d3.stackOffsetSilhouette)
+    .order(d3.stackOrderReverse)
     (newm)
+  
+  console.log(stackedData);
+  
+  // stackOffsetSilhouette
 
   var area = d3.area()
     .x(d => xScale(d.data.season))
     .y0(d => yScale(d[0]))
     .y1(d => yScale(d[1]))
-    .curve(d3.curveCardinal);
+    .curve(d3.curveCardinalOpen);
 
   useEffect(() => {
 
@@ -209,7 +240,6 @@ function App() {
         Tooltip.style("opacity", 0)
         d3.selectAll(".myArea")
           .style("opacity", 1)
-          .style("stroke", "none")
         d3.selectAll("circle")
           .style("opacity", 1)
         d3.selectAll("text")
@@ -234,9 +264,11 @@ function App() {
         .attr("d", area)
         .attr("class", "myArea")
         .style("fill", d => teamcols[d.key])
+        .style("stroke", 'black')
+        .style("stroke-width", '0.15')
         .attr("id", d => d.key.replace(/ /g, ""))
-        // .on("mouseover", mouseover)
-        // .on("mouseleave", mouseleave)
+        .on("mouseover", mouseover)
+        .on("mouseleave", mouseleave)
 
     }
 
@@ -263,7 +295,7 @@ function App() {
 
   }, [selectedOption])
 
-  var cols = 9
+  var cols = 7
   var gap = width / cols
   var start = 40
 
@@ -275,11 +307,11 @@ function App() {
       <button type="button" onClick={handleDownloadImage}>
         Download as PNG
       </button>
-      <header className="App-header" ref={printRef} >
+      <header className="App-header"  >
 
         {loading ? <p>loading</p> :
           <div>
-            <div className='headline'>FORMULA 1 CONSTRUCTORS</div>
+            {/* <div className='headline'>FORMULA 1 CONSTRUCTORS</div> */}
             {/* <h5 className='subtitle'>POINTS SYSTEM</h5>
             <div>
               <select onChange={handleSelect} value={selectedOption} className='select'>
@@ -292,13 +324,15 @@ function App() {
           </div>
         }
 
+        <div ref={printRef}>
 
         <svg ref={ref} width={width} height={height}>
-          <text fill='black' x={55} y={405} fontSize={12}>Size of stream represents number of points</text>
+          {/* <text fill='black' x={55} y={405} fontSize={12}>Size of stream represents number of points</text>
           <text fill='black' x={55} y={420} fontSize={12}>(2021 Points System)</text>
           <text fill='black' x={45} y={175} fontSize={12}>1950</text>
-          <text fill='black' x={width + 30} y={42} fontSize={12}>2021</text>
+        <text fill='black' x={width + 30} y={42} fontSize={12}>2021</text> */}
         </svg>
+        </div>
 
 
         <svg width={width + margin}>
@@ -340,7 +374,7 @@ function App() {
           )}
         </svg>
 
-        <div className='tagline'>Created by Sports Chord</div>
+        {/* <div className='tagline'>Created by Sports Chord</div> */}
       </header>
     </div>
   );
