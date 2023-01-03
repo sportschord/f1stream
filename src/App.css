@@ -63,6 +63,7 @@ body {
   width: 180px;
   text-align: left;
   justify-content: center;
+  vertical-align: middle;
 }
 
 .options {

@@ -170,9 +170,7 @@ function App() {
     .offset(d3.stackOffsetSilhouette)
     .order(d3.stackOrderReverse)
     (newm)
-  
-  console.log(stackedData);
-  
+    
   // stackOffsetSilhouette
 
   var area = d3.area()
@@ -278,7 +276,6 @@ function App() {
   var start = 40
 
   var handleClick = () => {
-    
     setReactHeight(heightCounter)
     setReactWidth(widthCounter)
 }
@@ -293,7 +290,7 @@ function App() {
 
         {loading ? <p>loading</p> :
           <div className='optionsbox'>
-            <text style={{fontSize:'20px'}}>Size Options</text>
+            <text style={{fontSize:'20px', fontWeight:'Bold',verticalAlign:'Top'}}>Size Options</text>
             <div className='options'>
               <text>Height</text>
               <div className='slider'>
@@ -332,12 +329,10 @@ function App() {
             <button onClick={handleClick}>Edit Size</button>
           </div>
         }
-        
-        
 
         <div ref={printRef}>
 
-        <svg ref={ref} width={width} height={reactHeight}>
+        <svg ref={ref} width={width} height={height}>
         </svg>
         </div>
 
