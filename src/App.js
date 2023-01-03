@@ -1,43 +1,43 @@
 import './App.css';
 import * as d3 from 'd3'
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
-import teamcols from './teamcols.json'
-import streams from './f1stream.csv'
-// import grouped from './f1streamgroups.csv'
-import grouped from './f1streamsorted.csv'
-import f1keysdata from './keys.csv'
-// import positions from './positions.csv'
+import teamcols from './teamcols.json';
+import streams from './f1stream.csv';
+import grouped from './f1streamsorted.csv';
+import f1keysdata from './keys.csv';
 
 function App() {
 
   const [newdat, setNewData] = useState([]);
-  // const [pos, setPos] = useState([]);
   const [data, setData] = useState([]);
   const [f1keys, setKeys] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("2010-2021")
   const ref = useRef();
   const printRef = useRef();
+  const [reactWidth, setReactWidth] = useState(1200);
+  const [reactHeight, setReactHeight] = useState(150);
+  const [heightCounter, setHeightCounter] = useState(reactHeight);
+  const [widthCounter, setWidthCounter] = useState(reactWidth);
 
-  const handleDownloadImage = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element, {scale:30});
+  // const handleDownloadImage = async () => {
+  //   const element = printRef.current;
+  //   const canvas = await html2canvas(element, {scale:30});
 
-    const data = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
+  //   const data = canvas.toDataURL('image/png');
+  //   const link = document.createElement('a');
 
-    if (typeof link.download === 'string') {
-      link.href = data;
-      link.download = 'streamgraph.png';
+  //   if (typeof link.download === 'string') {
+  //     link.href = data;
+  //     link.download = 'streamgraph.png';
 
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      window.open(data);
-    }
-  };
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   } else {
+  //     window.open(data);
+  //   }
+  // };
 
 
   // first useEffect to get data from csv
@@ -46,34 +46,25 @@ function App() {
 
     Promise.all([
       d3.csv(streams),
-      // d3.csv(positions),
       d3.csv(grouped),
       d3.csv(f1keysdata),
 
     ]).then((d) => {
       return (
         setNewData(d[0]),
-        // setPos(d[1]),
         setData(d[1]),
         setKeys(d[2])
       )
     }).then(() =>
       setLoading(false)
     )
-  }, [])
-
-
-  const handleSelect = (e) => setSelectedOption(e.target.value)
-
-  // get the different periods from points csv
-  // var period = new Set(pos.map(d => d.period))
+  }, []);
 
   //accessor functions
-  var teams = d => d.team
-  var grouppoints = d => d.GroupPoints
-  var points = d => d.points
-  var groups = d => d.group
-  var season = d => d.season
+  var teams = d => d.team;
+  var points = d => d.points;
+  var groups = d => d.group;
+  var season = d => d.season;
 
   let merged = [];
 
@@ -113,15 +104,10 @@ function App() {
   }));
   
   var conpoints = d3.flatRollup(dat, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
-  console.log('con',conpoints);
   var groupedpoints = d3.flatRollup(data, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
-  // var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
   var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
   groupedpoints = groupedpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
 
-  // console.log('data',data);
-  // console.log('group',groupedpoints);
-  // console.log(sortedcons);
   sortedcons = sortedcons.filter(d => d.points > 0);
 
   var seaspoints = d3.flatRollup(dat, v => d3.sum(v, points), season).map(d => ({ season: d[0], points: d[1] }));
@@ -156,19 +142,11 @@ function App() {
 
   }
 
-  // console.log(newm.sort((a, b) => d3.descending(a.points, b.points)));
-
-  // sortedcons = sortedcons.filter(d => d.group === 'Ferrari' || d.group === 'Mercedes' || d.group === 'McLaren');
-  // sortedcons = conpoints.slice().sort((a, b) => d3.ascending(a.points, b.points));
-
-  var keys = sortedcons.map(d => d.team)
-  console.log(f1keys.map(d => d.team));
-
-  var keys = f1keys.map(d => d.team)
+   var keys = f1keys.map(d => d.team)
 
   // let winwidth = window.innerWidth;
-  let winwidth = 840;
-  let winheight = 75
+  let winwidth = reactWidth;
+  let winheight = reactHeight
 
   var margins = 0
 
@@ -178,7 +156,7 @@ function App() {
 
 
 
-  var maxdom = maxpoints/2 
+  var maxdom = (maxpoints+100)/2 
   // var maxdom = 1
 
 
@@ -286,51 +264,80 @@ function App() {
       .data(stackedData)
       .attr("id", d => d.key.replace(/ /g, ""))
       .transition()
-      .ease(d3.easeCubicIn)
-      // .delay(500)
+      // .ease(d3.easeBounce)
+      // .delay(1000)
       .duration(1000)
       .attr("d", area)
       .style("fill", d => teamcols[d.key])
 
 
-  }, [selectedOption])
+  }, [reactHeight,reactWidth])
 
   var cols = 7
   var gap = width / cols
   var start = 40
 
-
+  var handleClick = () => {
+    
+    setReactHeight(heightCounter)
+    setReactWidth(widthCounter)
+}
 
 
   return (
     <div className="App">
-      <button type="button" onClick={handleDownloadImage}>
+      {/* <button type="button" onClick={handleDownloadImage}>
         Download as PNG
-      </button>
+      </button> */}
       <header className="App-header"  >
 
         {loading ? <p>loading</p> :
-          <div>
-            {/* <div className='headline'>FORMULA 1 CONSTRUCTORS</div> */}
-            {/* <h5 className='subtitle'>POINTS SYSTEM</h5>
-            <div>
-              <select onChange={handleSelect} value={selectedOption} className='select'>
-                {[...period].map(d =>
-                  <option value={d} key={d} className='option'>
-                    {d}
-                  </option>)}
-              </select>
-            </div> */}
+          <div className='optionsbox'>
+            <text style={{fontSize:'20px'}}>Size Options</text>
+            <div className='options'>
+              <text>Height</text>
+              <div className='slider'>
+                <input
+                  type="range"
+                  id="quantity"
+                  value={heightCounter}
+                  step="5"
+                  min="100"
+                  max="200"
+                  onChange={(e) => setHeightCounter(e.target.value)}
+                />
+
+                <text>{heightCounter}</text>
+
+              </div>
+
+            </div>
+            <div className='options'>
+              <text>Width</text>
+              <div className='slider'>
+                <input
+                  type="range"
+                  id="quantity"
+                  value={widthCounter}
+                  min="1000"
+                  max="1500"
+                  step="10"
+                  onChange={(e) => setWidthCounter(e.target.value)}
+                />
+                <text>{widthCounter}</text>
+
+              </div>
+            
+            </div>  
+            <button onClick={handleClick}>Edit Size</button>
           </div>
         }
+        
+        
 
         <div ref={printRef}>
 
-        <svg ref={ref} width={width} height={height}>
-          {/* <text fill='black' x={55} y={405} fontSize={12}>Size of stream represents number of points</text>
-          <text fill='black' x={55} y={420} fontSize={12}>(2021 Points System)</text>
-          <text fill='black' x={45} y={175} fontSize={12}>1950</text>
-        <text fill='black' x={width + 30} y={42} fontSize={12}>2021</text> */}
+        <svg ref={ref} width={width} height={reactHeight}>
         </svg>
         </div>
 
@@ -373,8 +380,6 @@ function App() {
             </g>
           )}
         </svg>
-
-        {/* <div className='tagline'>Created by Sports Chord</div> */}
       </header>
     </div>
   );
