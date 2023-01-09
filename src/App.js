@@ -1,6 +1,6 @@
 import './App.css';
 import * as d3 from 'd3'
-// import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
 import teamcols from './teamcols.json';
 import streams from './f1stream.csv';
@@ -15,29 +15,29 @@ function App() {
   const [loading, setLoading] = useState(true);
   const ref = useRef();
   const printRef = useRef();
-  const [reactWidth, setReactWidth] = useState(1200);
-  const [reactHeight, setReactHeight] = useState(150);
+  const [reactWidth, setReactWidth] = useState(1100);
+  const [reactHeight, setReactHeight] = useState(185);
   const [heightCounter, setHeightCounter] = useState(reactHeight);
   const [widthCounter, setWidthCounter] = useState(reactWidth);
 
-  // const handleDownloadImage = async () => {
-  //   const element = printRef.current;
-  //   const canvas = await html2canvas(element, {scale:30});
+  const handleDownloadImage = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element, {scale:30});
 
-  //   const data = canvas.toDataURL('image/png');
-  //   const link = document.createElement('a');
+    const data = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
 
-  //   if (typeof link.download === 'string') {
-  //     link.href = data;
-  //     link.download = 'streamgraph.png';
+    if (typeof link.download === 'string') {
+      link.href = data;
+      link.download = 'streamgraph.png';
 
-  //     document.body.appendChild(link);
-  //     link.click();
-  //     document.body.removeChild(link);
-  //   } else {
-  //     window.open(data);
-  //   }
-  // };
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(data);
+    }
+  };
 
 
   // first useEffect to get data from csv
@@ -161,8 +161,13 @@ function App() {
 
 
 
-  var xScale = d3.scaleLinear().domain(d3.extent(seasons)).range([0, width])
-  var yScale = d3.scaleLinear().domain([-maxdom, maxdom]).range([height, 0])
+  var xScale = d3.scaleLinear()
+    .domain(d3.extent(seasons))
+    .range([0, width])
+  
+  var yScale = d3.scaleLinear()
+    .domain([-maxdom, maxdom]).
+    range([height, 0])
   // var yScale = d3.scaleLinear().domain([0, maxdom]).range([height, 0])
 
   var stackedData = d3.stack()
@@ -240,7 +245,7 @@ function App() {
         .attr("d", area)
         .attr("class", "myArea")
         .style("fill", d => teamcols[d.key])
-        .style("stroke", 'black')
+        .style("stroke", 'grey')
         .style("stroke-width", '0.15')
         .attr("id", d => d.key.replace(/ /g, ""))
         .on("mouseover", mouseover)
@@ -283,12 +288,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <button type="button" onClick={handleDownloadImage}>
+      <button type="button" onClick={handleDownloadImage}>
         Download as PNG
-      </button> */}
+      </button>
       <header className="App-header"  >
 
-        {loading ? <p>loading</p> :
+        {
+          loading ? <p>loading</p> :
+          
           <div className='optionsbox'>
             <text style={{fontSize:'20px', fontWeight:'Bold',verticalAlign:'Top'}}>Size Options</text>
             <div className='options'>
@@ -331,8 +338,7 @@ function App() {
         }
 
         <div ref={printRef}>
-
-        <svg ref={ref} width={width} height={height}>
+          <svg ref={ref} width={width} height={height}>
         </svg>
         </div>
 
