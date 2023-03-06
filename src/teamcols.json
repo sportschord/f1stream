@@ -1,14 +1,14 @@
 {
   
   "AGS": "#1C23B5",
-  "Alfa Romeo": "#BD2E40",
+  "Alfa Romeo": "#C92D4B",
   "Alfa Romeo (Autodelta)": "#BD2E40",
   "Alfa Romeo (Original)": "#BD2E40",
   "AlphaTauri": "#469BFF",
-  "Alpine": "#2E3192",
+  "Alpine": "#02192B",
   "Anglo American Racers": "#D3D3D3",
   "Arrows": "#FF6600",
-  "Aston Martin": "#006F62",
+  "Aston Martin": "#358C75",
   "ATS (Germany)": "#EAE400",
   "BAR": "#FFFFFF",
   "Benetton": "#3266BA",
@@ -31,7 +31,7 @@
   "Force India": "#F596C8",
   "Frank Williams Racing Cars": "#080842",
   "Gordini": "#5AA7DC",
-  "Haas F1 Team": "#FFFFFF",
+  "Haas F1 Team": "#B6BABD",
   "Hesketh": "#FFFFFF",
   "Hill": "#FFFFFF",
   "Honda": "#FFFFFF",
@@ -79,6 +79,15 @@
   "Vanwall": "#074F2B",
   "Williams": "#FFFFFF",
   "Wolf": "#515151",
-  "Zakspeed": "#C60A0A"
+  "Zakspeed": "#C60A0A",
+  "Finotto": "#44A6D5",
+  "John Goldie": "#FF8700",
+  "Team Canada": "#FFFFFF",
+  "Caterham": "#027039",
+  "Lotus (Malaysia)": "#027039",
+  "Parnelli": "#469BFF",
+  "Siffert": "#FFFFFF",
+  "Team Haas": "#B6BABD",
+  "Virgin": "#000000"
 
 }

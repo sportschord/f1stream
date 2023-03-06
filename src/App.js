@@ -3,13 +3,11 @@ import * as d3 from 'd3'
 import html2canvas from 'html2canvas';
 import { useEffect, useRef, useState } from 'react';
 import teamcols from './teamcols.json';
-import streams from './f1stream.csv';
 import grouped from './f1streamsorted.csv';
 import f1keysdata from './keys.csv';
 
 function App() {
 
-  const [newdat, setNewData] = useState([]);
   const [data, setData] = useState([]);
   const [f1keys, setKeys] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +20,7 @@ function App() {
 
   const handleDownloadImage = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element, {scale:30});
+    const canvas = await html2canvas(element, { scale: 30 });
 
     const data = canvas.toDataURL('image/png');
     const link = document.createElement('a');
@@ -45,15 +43,13 @@ function App() {
   useEffect(() => {
 
     Promise.all([
-      d3.csv(streams),
       d3.csv(grouped),
       d3.csv(f1keysdata),
 
     ]).then((d) => {
       return (
-        setNewData(d[0]),
-        setData(d[1]),
-        setKeys(d[2])
+        setData(d[0]),
+        setKeys(d[1])
       )
     }).then(() =>
       setLoading(false)
@@ -61,88 +57,10 @@ function App() {
   }, []);
 
   //accessor functions
-  var teams = d => d.team;
-  var points = d => d.points;
-  var groups = d => d.group;
   var season = d => d.season;
 
-  let merged = [];
-
-  for (let i = 0; i < newdat.length; i++) {
-    merged.push({
-      ...newdat[i],
-      // ...(pos.filter(d => d.period === selectedOption).find((d) => d.position === newdat[i].position))
-    }
-    );
-  }
-  
-  var dat = merged.map(a =>
-    ({
-      group: a.ConstructorGroup,
-      constructor: a.Constructor,
-      season: a.Season,
-      points: a.Points * a.Count
-    }));
-    
-  
-  //sum points per constructor per season
-  dat = d3.flatRollup(dat,
-    v => d3.sum(v, points),
-    d => d.season,
-    d => d.constructor,
-    d => d.group
-  )
-    
-  
-  // flattens data to array of objects
-  dat = dat.map(d => ({
-    season: d[0],
-    team: d[1],
-    group: d[2],
-    points: d[3]
-    
-  }));
-  
-  var conpoints = d3.flatRollup(dat, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
-  var groupedpoints = d3.flatRollup(data, v => d3.sum(v, points), groups, teams).map(d => ({ group: d[0], team: d[1], points: d[2] }));
-  var sortedcons = conpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
-  groupedpoints = groupedpoints.slice().sort((a, b) => d3.descending(a.points, b.points));
-
-  sortedcons = sortedcons.filter(d => d.points > 0);
-
-  var seaspoints = d3.flatRollup(dat, v => d3.sum(v, points), season).map(d => ({ season: d[0], points: d[1] }));
-  var maxpoints = d3.max(seaspoints.map(d => d.points));
-
-  var cons = dat.map(d => d.team)
-  var seasons = Array.from(new Set(dat.map(season)));
-
-  var newm = [];
-
-  for (const season of seasons) {
-    newm.push({
-      season: season,
-    })
-  }
-
-  for (let i = 0; i < newm.length; i++) {
-    for (let item of cons) newm[i][item] = null
-
-  }
-
-
-  for (var year in seasons) {
-    let a = seasons[year];
-    let seasonData = dat.filter(d => d.season === a);
-
-
-    for (let j = 0; j < seasonData.length; j++) {
-      let cons = seasonData.map(d => d.team)[j]
-      newm[year][cons] = seasonData[j].points
-    }
-
-  }
-
-   var keys = f1keys.map(d => d.team)
+  var seasons = Array.from(new Set(data.map(season)));
+  var keys = f1keys.map(d => d.team)
 
   // let winwidth = window.innerWidth;
   let winwidth = reactWidth;
@@ -150,32 +68,27 @@ function App() {
 
   var margins = 0
 
-  var margin = { top: margins, right: margins, bottom: 0, left: margins },
+  var margin = { top: margins, right: margins, bottom: margins, left: margins },
     width = winwidth - margin.left - margin.right,
     height = winheight - margin.top - margin.bottom;
 
-
-
-  var maxdom = (maxpoints+100)/2 
+  var maxdom = 2400 / 2
   // var maxdom = 1
 
-
+  console.log(data);
 
   var xScale = d3.scaleLinear()
     .domain(d3.extent(seasons))
     .range([0, width])
-  
-  var yScale = d3.scaleLinear()
-    .domain([-maxdom, maxdom]).
-    range([height, 0])
-  // var yScale = d3.scaleLinear().domain([0, maxdom]).range([height, 0])
+
+  var yScale = d3.scaleLinear().domain([-maxdom, maxdom]).range([height, 0])
 
   var stackedData = d3.stack()
     .keys(keys)
     .offset(d3.stackOffsetSilhouette)
     .order(d3.stackOrderReverse)
-    (newm)
-    
+    (data)
+
   // stackOffsetSilhouette
 
   var area = d3.area()
@@ -186,7 +99,7 @@ function App() {
 
   useEffect(() => {
 
-    if (newm) {
+    if (data) {
 
 
       var svg = d3.select(ref.current)
@@ -205,13 +118,13 @@ function App() {
           .style("opacity", .1)
         d3.selectAll("text")
           .style("opacity", .1)
-        d3.selectAll("text." + d.path[0].id)
-          // .transition().duration(100)
+
+
+        d3.selectAll("text." + d.target.id)
           .style("opacity", 1)
-        d3.select("circle." + d.path[0].id)
-          // .transition().duration(300)
+        d3.select("circle." + d.target.id)
           .style("opacity", 1)
-        d3.select("#" + d.path[0].id)
+        d3.select("#" + d.target.id)
           .style("stroke", "black")
           .style("opacity", 1)
 
@@ -274,16 +187,16 @@ function App() {
       .style("fill", d => teamcols[d.key])
 
 
-  }, [reactHeight,reactWidth])
+  }, [reactHeight, reactWidth])
 
-  var cols = 7
+  var cols = 8
   var gap = width / cols
   var start = 40
 
   var handleClick = () => {
     setReactHeight(heightCounter)
     setReactWidth(widthCounter)
-}
+  }
 
 
   return (
@@ -295,92 +208,95 @@ function App() {
 
         {
           loading ? <p>loading</p> :
-          
-          <div className='optionsbox'>
-            <text style={{fontSize:'20px', fontWeight:'Bold',verticalAlign:'Top'}}>Size Options</text>
-            <div className='options'>
-              <text>Height</text>
-              <div className='slider'>
-                <input
-                  type="range"
-                  id="quantity"
-                  value={heightCounter}
-                  step="5"
-                  min="100"
-                  max="200"
-                  onChange={(e) => setHeightCounter(e.target.value)}
-                />
 
-                <text>{heightCounter}</text>
+            <div className='optionsbox'>
+              <text style={{ fontSize: '20px', fontWeight: 'Bold', verticalAlign: 'Top' }}>Size Options</text>
+              <div className='options'>
+                <text>Height</text>
+                <div className='slider'>
+                  <input
+                    type="range"
+                    id="quantity"
+                    value={heightCounter}
+                    step="5"
+                    min="100"
+                    max="200"
+                    onChange={(e) => setHeightCounter(e.target.value)}
+                  />
+
+                  <text>{heightCounter}</text>
+
+                </div>
 
               </div>
+              <div className='options'>
+                <text>Width</text>
+                <div className='slider'>
+                  <input
+                    type="range"
+                    id="quantity"
+                    value={widthCounter}
+                    min="1000"
+                    max="1500"
+                    step="10"
+                    onChange={(e) => setWidthCounter(e.target.value)}
+                  />
+                  <text>{widthCounter}</text>
 
+                </div>
+
+              </div>
+              <button onClick={handleClick}>Edit Size</button>
             </div>
-            <div className='options'>
-              <text>Width</text>
-              <div className='slider'>
-                <input
-                  type="range"
-                  id="quantity"
-                  value={widthCounter}
-                  min="1000"
-                  max="1500"
-                  step="10"
-                  onChange={(e) => setWidthCounter(e.target.value)}
-                />
-                <text>{widthCounter}</text>
-
-              </div>
-            
-            </div>  
-            <button onClick={handleClick}>Edit Size</button>
-          </div>
         }
 
         <div ref={printRef}>
           <svg ref={ref} width={width} height={height}>
-        </svg>
+          </svg>
         </div>
 
+        {loading ? <p>loading</p> :
 
-        <svg width={width + margin}>
-          {sortedcons?.map((d, i) =>
-            <g key={d.team + i}>
-              <circle
-                key={d.team + i}
-                id={d.team.replace(/ /g, "")}
-                className={d.team.replace(/ /g, "")}
-                cx={margins / 2 + (i % cols) * (gap) + start}
-                cy={20 + (Math.floor(i / cols)) * 20}
-                r={6}
-                fill={teamcols[d.team]}
-                stroke={"#d3d3d3"}
-                strokeWidth={0.5}
-              >
-              </circle>
-              <text
-                x={margins / 2 + (i % cols) * (gap) + (start + 20)}
-                y={3 + (20 + (Math.floor(i / cols)) * 20)}
-                fontSize={12}
-                className={d.team.replace(/ /g, "")}
-                fill={"black"}
-              >
-                {d.team}
-              </text>
 
-              {winwidth > 1500 ?
+          <svg width={width + margin}>
+            {keys?.map((d, i) =>
+              <g key={d + i}>
+                <circle
+                  key={d + i}
+                  id={d.replace(/ /g, "")}
+                  className={d.replace(/ /g, "")}
+                  cx={margins / 2 + (i % cols) * (gap) + start}
+                  cy={20 + (Math.floor(i / cols)) * 20}
+                  r={6}
+                  fill={teamcols[d]}
+                  stroke={"#d3d3d3"}
+                  strokeWidth={0.5}
+                >
+                </circle>
                 <text
-                  x={margins / 2 + (i % cols) * (gap) + (start+115)}
+                  x={margins / 2 + (i % cols) * (gap) + (start + 20)}
                   y={3 + (20 + (Math.floor(i / cols)) * 20)}
-                  fontSize={11}
-                  className={d.team.replace(/ /g, "")}
+                  fontSize={12}
+                  className={d.replace(/ /g, "")}
                   fill={"black"}
                 >
-                  {d.points.toLocaleString("en-US")}
-                </text> : ""}
-            </g>
-          )}
-        </svg>
+                  {d}
+                </text>
+
+                {winwidth > 1500 ?
+                  <text
+                    x={margins / 2 + (i % cols) * (gap) + (start + 115)}
+                    y={3 + (20 + (Math.floor(i / cols)) * 20)}
+                    fontSize={11}
+                    className={d.replace(/ /g, "")}
+                    fill={"black"}
+                  >
+                    {d.points.toLocaleString("en-US")}
+                  </text> : ""}
+              </g>
+            )}
+          </svg>
+        }
       </header>
     </div>
   );
