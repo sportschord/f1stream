@@ -138,6 +138,9 @@ function App() {
           .style("opacity", 1)
         d3.selectAll("text")
           .style("opacity", 1)
+        d3.select("#" + d.target.id)
+          .style("stroke", "grey")
+          .style("opacity", 1)
       }
 
       var Tooltip = svg
