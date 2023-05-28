@@ -13,21 +13,24 @@ function App() {
   const [loading, setLoading] = useState(true);
   const ref = useRef();
   const printRef = useRef();
-  const [reactWidth, setReactWidth] = useState(1100);
-  const [reactHeight, setReactHeight] = useState(185);
+  const [reactWidth, setReactWidth] = useState(1000);
+  const [reactHeight, setReactHeight] = useState(300);
   const [heightCounter, setHeightCounter] = useState(reactHeight);
   const [widthCounter, setWidthCounter] = useState(reactWidth);
 
+  const printsize = 10
+  const exhibition = 30
+
   const handleDownloadImage = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element, { scale: 30 });
+    const canvas = await html2canvas(element, { scale: printsize });
 
     const data = canvas.toDataURL('image/png');
     const link = document.createElement('a');
 
     if (typeof link.download === 'string') {
       link.href = data;
-      link.download = 'streamgraph.png';
+      link.download = 'streamgraph print.png';
 
       document.body.appendChild(link);
       link.click();
@@ -72,7 +75,7 @@ function App() {
     width = winwidth - margin.left - margin.right,
     height = winheight - margin.top - margin.bottom;
 
-  var maxdom = 2400 / 2
+  var maxdom = 2700 / 2
   // var maxdom = 1
 
   console.log(data);
@@ -96,6 +99,20 @@ function App() {
     .y0(d => yScale(d[0]))
     .y1(d => yScale(d[1]))
     .curve(d3.curveCardinalOpen);
+  
+  //gridlines
+
+  const gridlineData = [
+    { position: 14, years: 1950 },
+    { position: 149, years: 1960 },
+    { position: 284, years: 1970 },
+    { position: 419, years: 1980 },
+    { position: 554, years: 1990 },
+    { position: 689, years: 2000 },
+    { position: 824, years: 2010 },
+    { position: 959, years: 2020 }
+  ]
+
 
   useEffect(() => {
 
@@ -106,8 +123,33 @@ function App() {
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+        // .attr("transform",
+        //   "translate(" + margin.left + "," + margin.top + ")");
+      
+      const gridlines = svg.selectAll(".gridline")
+        .data(gridlineData)
+        .enter()
+        .append("line")
+        .attr("class", "gridline");
+      
+      gridlines.attr("x1", d => d.position) // Set the starting x-coordinate of each line
+        .attr("y1", 0) // Set the starting y-coordinate of each line
+        .attr("x2", d => d.position) // Set the ending x-coordinate of each line
+        .attr("y2", height-12) // Set the ending y-coordinate of each line
+        .attr("stroke", "#d3d3d3"); // Set the color of the gridlines
+      
+      const gridtext = svg.selectAll(".text")
+        .data(gridlineData)
+        .enter()
+        .append("text")
+        .attr("class", "gridline")
+        .attr("font-size", "12px")
+        .attr("fill","grey");
+      
+      gridtext.attr("x", d => d.position) // Set the x-coordinate of each text element
+        .attr("y", height) // Set the y-coordinate of each text element
+        .attr("text-anchor", "middle") // Align text at the middle horizontally
+        .text(d => d.years); // Set the text content based on the data value
 
       // Three function that change the tooltip when user hover / move / leave a cell
       var mouseover = (d, e) => {
@@ -118,8 +160,6 @@ function App() {
           .style("opacity", .1)
         d3.selectAll("text")
           .style("opacity", .1)
-
-
         d3.selectAll("text." + d.target.id)
           .style("opacity", 1)
         d3.select("circle." + d.target.id)
@@ -223,7 +263,7 @@ function App() {
                     value={heightCounter}
                     step="5"
                     min="100"
-                    max="200"
+                    max="300"
                     onChange={(e) => setHeightCounter(e.target.value)}
                   />
 

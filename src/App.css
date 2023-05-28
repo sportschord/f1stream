@@ -27,7 +27,7 @@ body {
   font-family: 'montserrat';
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 1fr 2fr 1fr;
+  /* grid-template-rows: 1fr 1fr 2fr 1fr; */
   align-items: center;
   justify-content: center;
   font-size: calc(20px + 2vmin);
@@ -76,6 +76,12 @@ body {
 display: grid;
 grid-template-columns: 80% auto;
 
+}
+
+.gridline {
+  stroke-width: 1px;
+  /* stroke-dasharray: 8 4; */
+  /* Dashed pattern: 4px solid, 2px blank */
 }
 
 /* body {
