@@ -18,7 +18,7 @@ function App() {
   const [heightCounter, setHeightCounter] = useState(reactHeight);
   const [widthCounter, setWidthCounter] = useState(reactWidth);
 
-  const printsize = 10
+  const printsize = 20
   const exhibition = 30
 
   const handleDownloadImage = async () => {
@@ -126,30 +126,30 @@ function App() {
         // .attr("transform",
         //   "translate(" + margin.left + "," + margin.top + ")");
       
-      const gridlines = svg.selectAll(".gridline")
-        .data(gridlineData)
-        .enter()
-        .append("line")
-        .attr("class", "gridline");
+      // const gridlines = svg.selectAll(".gridline")
+      //   .data(gridlineData)
+      //   .enter()
+      //   .append("line")
+      //   .attr("class", "gridline");
       
-      gridlines.attr("x1", d => d.position) // Set the starting x-coordinate of each line
-        .attr("y1", 0) // Set the starting y-coordinate of each line
-        .attr("x2", d => d.position) // Set the ending x-coordinate of each line
-        .attr("y2", height-12) // Set the ending y-coordinate of each line
-        .attr("stroke", "#d3d3d3"); // Set the color of the gridlines
+      // gridlines.attr("x1", d => d.position) // Set the starting x-coordinate of each line
+      //   .attr("y1", 0) // Set the starting y-coordinate of each line
+      //   .attr("x2", d => d.position) // Set the ending x-coordinate of each line
+      //   .attr("y2", height-12) // Set the ending y-coordinate of each line
+      //   .attr("stroke", "#d3d3d3"); // Set the color of the gridlines
       
-      const gridtext = svg.selectAll(".text")
-        .data(gridlineData)
-        .enter()
-        .append("text")
-        .attr("class", "gridline")
-        .attr("font-size", "12px")
-        .attr("fill","grey");
+      // const gridtext = svg.selectAll(".text")
+      //   .data(gridlineData)
+      //   .enter()
+      //   .append("text")
+      //   .attr("class", "gridline")
+      //   .attr("font-size", "12px")
+      //   .attr("fill","grey");
       
-      gridtext.attr("x", d => d.position) // Set the x-coordinate of each text element
-        .attr("y", height) // Set the y-coordinate of each text element
-        .attr("text-anchor", "middle") // Align text at the middle horizontally
-        .text(d => d.years); // Set the text content based on the data value
+      // gridtext.attr("x", d => d.position) // Set the x-coordinate of each text element
+      //   .attr("y", height) // Set the y-coordinate of each text element
+      //   .attr("text-anchor", "middle") // Align text at the middle horizontally
+      //   .text(d => d.years); // Set the text content based on the data value
 
       // Three function that change the tooltip when user hover / move / leave a cell
       var mouseover = (d, e) => {
